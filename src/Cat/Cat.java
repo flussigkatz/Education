@@ -1,4 +1,4 @@
-package Other;
+package Cat;
 
 public class Cat {
 
@@ -6,21 +6,32 @@ public class Cat {
     private String name;
     private int age;
     private String color;
+    public static int catCount;
+
 
     //Конструктор по умолчанию
     public Cat() {
-        weight = 3000;
-        name = "Barsik";
-        age = 1;
-        color = "Grey";
+        this(3000, "Barsik", 1, "Grey");
     }
 
+
+
     //Конструктор, принимающий параметры
-    public Cat(double weight1, String name1, int age1, String color1) {
-        weight = weight1;
-        name = name1;
-        age = age1;
-        color = color1;
+    public Cat(double weight, String name, int age, String color) {
+        this.weight = weight;
+        this.name = name;
+        this.age = age;
+        this.color = color;
+        catCount++; //Увеличиваем счётчик кошек
+    }
+
+    public void feed(double foodAmount) {
+        if(foodAmount < 1000) {
+            System.out.println("Кошку покормили! Она довольна!");
+        } else {
+            System.out.println("Кошку перекормили и она лопнула.");
+            catCount--;
+        }
     }
 
     public double getWeight() {
