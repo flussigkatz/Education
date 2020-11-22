@@ -6,10 +6,10 @@ import java.util.Date;
 
 public class E8_2_4 {
         public static void printDifference(Date first, Date second) {
-            long milliseconds = Math.abs(first.getTime() - second.getTime()); // Получаем разницу модулей в миллисекундах
-            long days = milliseconds / (24 * 60 * 60 * 1000); // Получаем целое кол-во дней
+            long milliseconds = Math.abs(first.getTime() - second.getTime());
+            long days = milliseconds / (24 * 60 * 60 * 1000);
             String format = "Разница между датами: %s дней" + System.lineSeparator();
-            System.out.printf(format, days); // печатаем результат в указанном выше формате
+            System.out.printf(format, days);
         }
         public static void main(String[] args) throws ParseException {
             SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
@@ -18,7 +18,6 @@ public class E8_2_4 {
             System.out.println(sdf.format(date));
             System.out.println(sdf.format(birthDay));
             printDifference(date, birthDay);
-            printDifference(birthDay, date);
 
         }
 }
