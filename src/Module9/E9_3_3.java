@@ -5,13 +5,14 @@ public class E9_3_3 {
         int[] array = new int[3];//2
         String str = null;//3
         try {
+
             subRoutine();//1
 
             System.out.println(array[4]);
 
-            System.out.println(str);
+            System.out.println(str.length());
 
-        } catch (ArithmeticException | ArrayIndexOutOfBoundsException ex) {
+        } catch (ArithmeticException | ArrayIndexOutOfBoundsException | NullPointerException ex) {
             System.err.println("Err");
         }
 
