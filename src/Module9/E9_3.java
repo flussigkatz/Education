@@ -11,7 +11,7 @@ public class E9_3 {
             System.out.println(nf.parse("sss"));
         } catch (
                 ParseException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
         System.out.println("Конец программы.");
 
