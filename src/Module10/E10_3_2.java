@@ -5,25 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class E10_3_2 {
-    public static void main(String[] args) {
-        List<Integer> list = new LinkedList<>();
 
-        for (int i = 0; i <= 3; i++) {
-            list.add(i);
-        }
 
-        System.out.println(list.get(list.size()-1));
-    }
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
-        list.add(15);
-        list.addLast(28);
-        list.remove(0);
-        list.set(0, 33);
-        list.addFirst(null);
-        List<Integer> anotherList = list; // 1
-        System.out.println(anotherList);
-    }
     /*public static void addCol (Collection<? extends String> collection) {
         System.out.println(collection.size());
     }
