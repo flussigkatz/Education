@@ -3,10 +3,10 @@ package Module10;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.List;
 
-public class E10_4_6 {
-    public static void main(String[] args){/*
+public class tmp {
+    public static void main(String[] args){
+        Date firtime = new Date();
         LinkedList<Integer> list = new LinkedList();
         fillList(99,0, list);
         System.out.println("Fill list 0-99");
@@ -16,27 +16,10 @@ public class E10_4_6 {
         printList(list);
         System.out.println("Fill list 99-0");
         fillList(0,99, list);
-        printList(list);*/
-        Date firtime = new Date();
-
+        printList(list);
         SimpleDateFormat sdf = new SimpleDateFormat("ss");
 
 
-        List<Integer> list = new LinkedList<>();
-
-        for (int i = 0; i < 100; i++) {
-            list.add(i);
-        }
-        System.out.println(list);
-
-        for (int i = 0, j = 99; i < 50 && j >= 50; i++, j--) {
-            list.set(j, i);
-            list.set(i, j);
-//            int start = list.get(i);
-//            int end = list.get(j);
-//            list.set(j, start);
-//            list.set(i, end);
-        }
 
         System.out.println(list);
         Date sectime = new Date();
