@@ -1,7 +1,5 @@
 package Module10;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,13 +15,11 @@ public class E10_4_6 {
         System.out.println("Fill list 99-0");
         fillList(0,99, list);
         printList(list);*/
-        Date firtime = new Date();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("ss");
+
 
 
         List<Integer> list = new LinkedList<>();
-
         for (int i = 0; i < 100; i++) {
             list.add(i);
         }
@@ -39,8 +35,6 @@ public class E10_4_6 {
         }
 
         System.out.println(list);
-        Date sectime = new Date();
-        printDifference(firtime, sectime);
     }
 
     private static void fillList(int x, int y, LinkedList list) {
@@ -56,13 +50,5 @@ public class E10_4_6 {
     }
     private static void printList(LinkedList list) {
         System.out.println(list.toString());
-    }
-
-    public static void printDifference(Date first, Date second) {
-        long milliseconds = Math.abs(first.getTime() - second.getTime());
-//        long days = milliseconds / (24 * 60 * 60 * 1000);
-//        long seconds = milliseconds / (1000);
-        String format = "Выполнено за %s милисекунду" + System.lineSeparator();
-        System.out.printf(format, milliseconds);
     }
 }
