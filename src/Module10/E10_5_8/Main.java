@@ -1,5 +1,8 @@
 package Module10.E10_5_8;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static final String DIAMONDS = "Diamonds";
     public static final String SPADES = "Spades";
@@ -60,7 +63,7 @@ public class Main {
         Card card51 = new Card(CLUBS, "jack");
         Card card52 = new Card(HEARTS, "jack");
         Card card53 = new Card(DIAMONDS, "10");
-        Card card554 = new Card(SPADES, "10");
+        Card card54 = new Card(SPADES, "10");
         Card card55 = new Card(CLUBS, "10");
         Card card56 = new Card(HEARTS, "10");
         Card card57 = new Card(DIAMONDS, "9");
@@ -79,5 +82,85 @@ public class Main {
         Card card70 = new Card(SPADES, "6");
         Card card71 = new Card(CLUBS, "6");
         Card card72 = new Card(HEARTS, "6");
+
+        Set<Card> setCard = new HashSet<>();
+
+        setCard.add(card1);
+        setCard.add(card2);
+        setCard.add(card3);
+        setCard.add(card4);
+        setCard.add(card5);
+        setCard.add(card6);
+        setCard.add(card7);
+        setCard.add(card8);
+        setCard.add(card9);
+        setCard.add(card10);
+        setCard.add(card11);
+        setCard.add(card12);
+        setCard.add(card13);
+        setCard.add(card14);
+        setCard.add(card15);
+        setCard.add(card16);
+        setCard.add(card17);
+        setCard.add(card18);
+        setCard.add(card19);
+        setCard.add(card20);
+        setCard.add(card21);
+        setCard.add(card22);
+        setCard.add(card23);
+        setCard.add(card24);
+        setCard.add(card25);
+        setCard.add(card26);
+        setCard.add(card27);
+        setCard.add(card28);
+        setCard.add(card29);
+        setCard.add(card30);
+        setCard.add(card31);
+        setCard.add(card32);
+        setCard.add(card33);
+        setCard.add(card34);
+        setCard.add(card35);
+        setCard.add(card36);
+        setCard.add(card37);
+        setCard.add(card38);
+        setCard.add(card39);
+        setCard.add(card40);
+        setCard.add(card41);
+        setCard.add(card42);
+        setCard.add(card43);
+        setCard.add(card44);
+        setCard.add(card45);
+        setCard.add(card46);
+        setCard.add(card47);
+        setCard.add(card48);
+        setCard.add(card49);
+        setCard.add(card50);
+        setCard.add(card51);
+        setCard.add(card52);
+        setCard.add(card53);
+        setCard.add(card54);
+        setCard.add(card55);
+        setCard.add(card56);
+        setCard.add(card57);
+        setCard.add(card58);
+        setCard.add(card59);
+        setCard.add(card60);
+        setCard.add(card61);
+        setCard.add(card62);
+        setCard.add(card63);
+        setCard.add(card64);
+        setCard.add(card65);
+        setCard.add(card66);
+        setCard.add(card67);
+        setCard.add(card68);
+        setCard.add(card69);
+        setCard.add(card70);
+        setCard.add(card71);
+        setCard.add(card72);
+        for (Card p : setCard) {
+            System.out.println(p);
+        }
+        System.out.println(setCard.size());
     }
+
 }
