@@ -26,12 +26,12 @@ public class E10_4_6 {
         System.out.println(list);
 
         for (int i = 0, j = 99; i < 50 && j >= 50; i++, j--) {
-            list.set(j, i);
-            list.set(i, j);
 //            int start = list.get(i);
 //            int end = list.get(j);
 //            list.set(j, start);
 //            list.set(i, end);
+            list.set(j, i);
+            list.set(i, j);
         }
 
         System.out.println(list);
