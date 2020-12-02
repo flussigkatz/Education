@@ -8,6 +8,9 @@ public class Card {
     public final String rank;
 
     public Card(String suit, String rank) {
+        if (rank == null || suit == null) {
+            throw new IllegalArgumentException();
+        }
         this.suit = suit;
         this.rank = rank;
     }
