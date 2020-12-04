@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         int numberOfTasks = 5; // ограничим нашу очередь 5 задачами
         ArrayDeque toDoQueue = new ArrayDeque(numberOfTasks); // создаем очередь
         Boss boss = new Boss(toDoQueue); // создаем начальника с ссылкой на
@@ -21,5 +21,5 @@ public class Main {
         for (int i = 1; i <= numberOfTasks + 1; i++) {
             worker.takeTask();
         }
-    }
+    }*/
 }
