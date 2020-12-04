@@ -8,8 +8,7 @@ import java.util.logging.Logger;
 
 public class JulExample {
 
-    public static final Logger logger = Logger.getLogger(
-            JulExample.class.getName());
+    public static final Logger logger = Logger.getLogger(JulExample.class.getName());
 
     public static void main(String[] args) {
         logger.info("Приложение запущено");
