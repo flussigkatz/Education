@@ -1,4 +1,3 @@
-package Module8;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -7,7 +6,7 @@ import org.w3c.dom.traversal.NodeFilter;
 import javax.swing.text.html.parser.Parser;
 
 public class Pars {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         try {
             Parser parser = new Parser("http://www.alliance-bags.ru/catalog.php?tov=576");
             parser.setEncoding("windows-1251");
@@ -23,5 +22,5 @@ public class Pars {
         } catch (ParserException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
