@@ -4,6 +4,9 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class E11_2_8 {
+
+
+
     public static void main(String[] args) {
         int x = 2;
         E11 anon = new E11() {
