@@ -1,15 +1,14 @@
 package Module11;
 
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.BiFunction;
 import java.util.stream.Stream;
 
 public class Lam {
 
 
     public static void main(String[] args) {
+        Stream<Integer> infinite = Stream.iterate(2, x -> x * 2);
+        System.out.println(infinite.anyMatch(test -> test / 8 == 0));
         int a = 3;
         int b = 2;
 //        int r = (int a, int b) -> {  return a + b; };
@@ -20,7 +19,5 @@ public class Lam {
         System.out.println(c.apply(a,b));
         System.out.println(m.apply(a,b));
         System.out.println(im.apply(a,b));
-        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
-        list.forEach(n -> System.out.println(n));
     }
 }
