@@ -2,7 +2,7 @@ package Module12;
 
 import java.util.concurrent.*;
 
-public class E12_6 {
+public class E12_6_2 {
     /*public static void main(String[] args) {
         ExecutorService service = null;
         try {
