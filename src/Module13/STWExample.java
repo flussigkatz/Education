@@ -4,14 +4,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class STWExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         // поток, временно выделяющий и освобождающий ~100 Mb памяти
         Thread t1 = new Thread(() -> {
             while (true) {
                 List<byte[]> bytes = new LinkedList<>();
                 for (int i = 0; i < 100; i++) {
                     bytes.add(new byte[1024 * 1024]);
-                    sleep(10);
+//                    sleep(20);
                 }
             }
         });
