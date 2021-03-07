@@ -21,7 +21,8 @@ class DividerTask {
         fun divideAndPrint() {
             //напишите логику разделения
             val profGrop = list.groupBy { it.profession }
-            println(profGrop)
+            println(profGrop["Builder"])
+            println(profGrop["Worker"])
         }
     }
 
