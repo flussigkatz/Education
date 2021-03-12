@@ -1,48 +1,60 @@
 package Module17
 
-import java.util.*
 
 fun main() {
     val kingdom = Kingdom()
-    for (i in 1 until 10) {kingdom.bornHeir("Heir$i")}
-    for (i in 1 until 50) {kingdom.recruitingArmy(i)}
-    println(kingdom.ruler.kingName)
+    for (i in 1 .. 10) {kingdom.bornHeir("Heir$i")}
+    for (i in 1 .. 50) {kingdom.recruitingArmy(i)}
+    println(kingdom.ruler)
     println(kingdom.heirList.size)
-    println(kingdom.heirList.get(0).heirName)
+    println(kingdom.heirList)
+    println(kingdom.archerList.size)
+    println(kingdom.warriorList.size)
 }
 
 class Kingdom {
     var ruler = Ruler()
     var heirList = mutableListOf<Heir>()
+    val archerList = mutableListOf<Archer>()
+    val warriorList = mutableListOf<Warrior>()
+
     fun bornHeir(heirName: String) {
         var heir = Heir(heirName)
         heirList.add(heir)
     }
+
     fun recruitingArmy(index: Int) {
         if (index <= 10) {
             var armyUnit = Archer("Dagger")
+            archerList.add(armyUnit)
+        } else if (index <= 20) {
+            var armyUnit = Archer("Bow")
+            archerList.add(armyUnit)
+        } else {
+            var armyUnit = Warrior("Sword")
+            warriorList.add(armyUnit)
         }
+    }
+}
+
+open class Ruler(open val power: Int = 100, val intellect: Int = 200) {
+    val kingName: String = "Ivan"
+//    val power: Int = 100
+//    val intellect: Int = 200
+    override fun toString(): String {
+        return "Ruler(kingName='$kingName', power=$power, intellect=$intellect)"
     }
 
 }
 
-open class Ruler() {
-    val kingName: String = "Ivan"
-    val power: Int = 100
-    val intellect: Int = 200
-
+class Heir(val heirName: String): Ruler(){
+//    TODO extends Ruler
+    override fun toString(): String {
+        return "Heir(heirName='$heirName')"
+    }
 }
 
-class Heir(val heirName: String? = null) {
-}
 
-data class Army(val prof: String, val weapon: String) {
-    val archerList = mutableListOf<Archer>()
-    val warriorList = mutableListOf<Warrior>()
-}
+data class Archer(val weapon: String, val armor: String = "LightArmor")
 
-class Archer(weapon: String) {
-    val armor: String = "LightArmor"
-}
-
-class Warrior(armor: String = "HardArmor", weapon: String)
+data class Warrior(val weapon: String, val armor: String = "HardArmor")
