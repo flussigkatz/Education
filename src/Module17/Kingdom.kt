@@ -37,7 +37,7 @@ class Kingdom {
     }
 }
 
-open class Ruler(open val power: Int = 100, val intellect: Int = 200) {
+open class Ruler(var power: Int = 100, val intellect: Int = 200) {
     val kingName: String = "Ivan"
 //    val power: Int = 100
 //    val intellect: Int = 200
