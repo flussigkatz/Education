@@ -3,23 +3,21 @@ package Module17
 
 fun main() {
     val kingdom = Kingdom()
-    for (i in 1 .. 10) {kingdom.bornHeir("Heir$i")}
-    for (i in 1 .. 50) {kingdom.recruitingArmy(i)}
+//    for (i in 1 .. 10) {kingdom.bornHeir("Heir$i")}
+//    for (i in 1 .. 50) {kingdom.recruitingArmy(i)}
     println(kingdom.ruler)
-    println(kingdom.heirList.size)
     println(kingdom.heirList)
-    println(kingdom.archerList.size)
-    println(kingdom.warriorList.size)
+    println(kingdom.archerList)
+    println(kingdom.warriorList)
 }
 
 class Kingdom {
-    var ruler = Ruler()
+    var ruler = Ruler("Ivan")
     var heirList = mutableListOf<Heir>()
     val archerList = mutableListOf<Archer>()
     val warriorList = mutableListOf<Warrior>()
-
-    fun bornHeir(heirName: String) {
-        var heir = Heir(heirName)
+    fun bornHeir(name: String) {
+        var heir = Heir(name)
         heirList.add(heir)
     }
 
@@ -35,23 +33,35 @@ class Kingdom {
             warriorList.add(armyUnit)
         }
     }
+    init {
+        for (i in 1..10) bornHeir("Heir$i")
+        for (i in 1..50) recruitingArmy(i)
+    }
 }
 
-open class Ruler(var power: Int = 100, val intellect: Int = 200) {
-    val kingName: String = "Ivan"
-//    val power: Int = 100
-//    val intellect: Int = 200
+fun fortunate (fortValue: Int): Int {
+    if ((1..20).random() > 10) {
+        return fortValue + (1..20).random()
+    } else {
+        return fortValue - (1..20).random()
+    }
+}
+
+open class Ruler(val name: String) {
+    var power: Int = (50..100).random()
+    var intellect: Int = (60..200).random()
     override fun toString(): String {
-        return "Ruler(kingName='$kingName', power=$power, intellect=$intellect)"
+        return "Ruler(Name='$name', power=$power, intellect=$intellect)"
     }
 
 }
 
-class Heir(val heirName: String): Ruler(){
-//    TODO extends Ruler
-    override fun toString(): String {
-        return "Heir(heirName='$heirName')"
+class Heir(name: String): Ruler(name){
+    init{
+        power = fortunate(power)
+        intellect = fortunate(intellect)
     }
+
 }
 
 
