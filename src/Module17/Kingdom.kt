@@ -3,8 +3,6 @@ package Module17
 
 fun main() {
     val kingdom = Kingdom()
-//    for (i in 1 .. 10) {kingdom.bornHeir("Heir$i")}
-//    for (i in 1 .. 50) {kingdom.recruitingArmy(i)}
     println(kingdom.ruler)
     println(kingdom.heirList)
     println(kingdom.archerList)
