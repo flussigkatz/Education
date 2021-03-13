@@ -1,4 +1,4 @@
-package Module17
+package module17
 
 
 fun main() {
@@ -15,19 +15,19 @@ class Kingdom {
     val archerList = mutableListOf<Archer>()
     val warriorList = mutableListOf<Warrior>()
     fun bornHeir(name: String) {
-        var heir = Heir(name)
+        val heir = Heir(name)
         heirList.add(heir)
     }
 
     fun recruitingArmy(index: Int) {
         if (index <= 10) {
-            var armyUnit = Archer("Dagger")
+            val armyUnit = Archer("Dagger")
             archerList.add(armyUnit)
         } else if (index <= 20) {
-            var armyUnit = Archer("Bow")
+            val armyUnit = Archer("Bow")
             archerList.add(armyUnit)
         } else {
-            var armyUnit = Warrior("Sword")
+            val armyUnit = Warrior("Sword")
             warriorList.add(armyUnit)
         }
     }
