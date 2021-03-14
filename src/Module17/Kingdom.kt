@@ -1,12 +1,16 @@
 package module17
 
+import Module17.Peasant
+
 
 fun main() {
     val kingdom = Kingdom()
-    println(kingdom.ruler)
-    println(kingdom.heirList)
-    println(kingdom.archerList)
-    println(kingdom.warriorList)
+//    println(kingdom.ruler)
+//    println(kingdom.heirList)
+//    println(kingdom.archerList)
+//    println(kingdom.warriorList)
+    println(kingdom.peasantList.size)
+    println(kingdom.peasantList)
 }
 
 class Kingdom {
@@ -14,6 +18,7 @@ class Kingdom {
     var heirList = mutableListOf<Heir>()
     val archerList = mutableListOf<Archer>()
     val warriorList = mutableListOf<Warrior>()
+    val peasantList = mutableListOf<Peasant>()
     fun bornHeir(name: String) {
         val heir = Heir(name)
         heirList.add(heir)
@@ -31,9 +36,19 @@ class Kingdom {
             warriorList.add(armyUnit)
         }
     }
+
+
     init {
         for (i in 1..10) bornHeir("Heir$i")
         for (i in 1..50) recruitingArmy(i)
+        while (peasantList.size != 100){
+            peasantList.add(Peasant(Peasant.Occupation.WORKER))
+            peasantList.add(Peasant(Peasant.Occupation.BILDER))
+            peasantList.add(Peasant(Peasant.Occupation.FARMER))
+            while (peasantList.size > 100){
+                peasantList.removeLast()
+            }
+        }
     }
 }
 
