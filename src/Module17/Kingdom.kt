@@ -1,19 +1,22 @@
 package module17
 
+import Module17.CollectTaxes
 import Module17.Peasant
 
 
 fun main() {
     val kingdom = Kingdom()
-//    println(kingdom.ruler)
+    println(kingdom.ruler)
 //    println(kingdom.heirList)
 //    println(kingdom.archerList)
 //    println(kingdom.warriorList)
-    println(kingdom.peasantList.size)
     println(kingdom.peasantList)
+    println(kingdom.peasantList.size)
+    Ruler.rulerAnnouncement()
 }
 
 class Kingdom {
+    var treasury = 0
     var ruler = Ruler("Ivan")
     var heirList = mutableListOf<Heir>()
     val archerList = mutableListOf<Archer>()
@@ -37,16 +40,14 @@ class Kingdom {
         }
     }
 
-
     init {
         for (i in 1..10) bornHeir("Heir$i")
         for (i in 1..50) recruitingArmy(i)
-        while (peasantList.size != 100){
-            peasantList.add(Peasant(Peasant.Occupation.WORKER))
-            peasantList.add(Peasant(Peasant.Occupation.BILDER))
-            peasantList.add(Peasant(Peasant.Occupation.FARMER))
-            while (peasantList.size > 100){
-                peasantList.removeLast()
+        for (i in 1..100) {
+            when {
+                i % 2 == 0 -> peasantList.add(Peasant(Peasant.Occupation.BILDER))
+                i % 3 == 0 -> peasantList.add(Peasant(Peasant.Occupation.FARMER))
+                else ->peasantList.add(Peasant(Peasant.Occupation.WORKER))
             }
         }
     }
@@ -63,8 +64,13 @@ fun fortunate (fortValue: Int): Int {
 open class Ruler(val name: String) {
     var power: Int = (50..100).random()
     var intellect: Int = (60..200).random()
+    companion object {
+        fun rulerAnnouncement () {
+            println("Его Высокое Благородие Король в здании.")
+        }
+    }
     override fun toString(): String {
-        return "Ruler(Name='$name', power=$power, intellect=$intellect)"
+        return "Ruler($name power=$power intellect=$intellect)"
     }
 
 }
@@ -81,3 +87,5 @@ class Heir(name: String): Ruler(name){
 data class Archer(val weapon: String, val armor: String = "LightArmor")
 
 data class Warrior(val weapon: String, val armor: String = "HardArmor")
+
+abstract class TaxCollector

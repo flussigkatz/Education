@@ -8,6 +8,6 @@ class Peasant(val occupation: Occupation) {
     }
 
     override fun toString(): String {
-        return "Peasant $occupation"
+        return "Peasant $occupation)"
     }
 }
