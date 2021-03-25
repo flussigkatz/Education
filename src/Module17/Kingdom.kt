@@ -6,9 +6,6 @@ import Module17.Peasant
 fun main() {
     val kingdom = Kingdom()
     println(kingdom.ruler)
-    kingdom.workerTaxCollector.collect(kingdom.peasantList)
-    kingdom.bilderTaxCollector.collect(kingdom.peasantList)
-    kingdom.farmerTaxCollector.collect(kingdom.peasantList)
     Ruler.rulerAnnouncement()
     ("казна " + Kingdom.treasury).yourHighness()
 }
@@ -72,6 +69,9 @@ class Kingdom {
         for (i in 1..10) bornHeir("Heir$i")
         for (i in 1..50) recruitingArmy(i)
         callPeasants(100)
+        workerTaxCollector.collect(peasantList)
+        bilderTaxCollector.collect(peasantList)
+        farmerTaxCollector.collect(peasantList)
     }
 }
 
