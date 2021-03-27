@@ -16,7 +16,7 @@ fun main() {
 class Kingdom {
     var ruler = Ruler("Ivan")
     var treasury = 0
-    var heirList = mutableListOf<Heir>()
+    val heirList = mutableListOf<Heir>()
     val archerList = mutableListOf<Archer>()
     val warriorList = mutableListOf<Warrior>()
     val peasantList = mutableListOf<Peasant>()
