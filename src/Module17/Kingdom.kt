@@ -8,6 +8,8 @@ fun main() {
     println(kingdom.ruler)
     Ruler.rulerAnnouncement()
     ("казна " + Kingdom.treasury).yourHighness()
+    kingdom.upgradeArcher(kingdom.archerList){println(it)}
+    kingdom.upgradeWarrior(kingdom.warriorList) {println(it)}
 }
 
 class Kingdom {
@@ -55,6 +57,7 @@ class Kingdom {
         }
     }
 
+
     fun callPeasants(i: Int) {
         for (count in 1..i) {
             when {
@@ -65,6 +68,41 @@ class Kingdom {
         }
     }
 
+    fun upgradeWarrior(list: MutableList<Warrior>, operation: (MutableList<Warrior>) -> Unit) {
+        list.forEach { it
+            it.weapon = "BFS"
+        }
+
+        operation(list)
+    }
+
+    fun upgradeArcher(list: MutableList<Archer>, operation: (MutableList<Archer>) -> Unit) {
+        list.forEach { it
+            it.weapon = "Composite bow"
+        }
+
+        operation(list)
+    }
+
+    fun givegiveFunToPesants(list: List<Peasant>) {
+        list.forEach {peasant ->
+            list.forEach {
+                if(peasant.occupation == it.occupation) println("Привет, коллега!")
+                else println("Вижу мы с вами занимаемся разным")
+            }
+        }
+    }
+
+    /*fun givegiveFunToPesants(list: MutableList<Peasant>) {
+        list.forEach {
+            var peasant = it
+            list.forEach {
+                if(peasant.occupation == it.occupation) println("Привет, коллега!")
+                else println("Вижу мы с вами занимаемся разным")
+            }
+        }
+    }
+*/
     init {
         for (i in 1..10) bornHeir("Heir$i")
         for (i in 1..50) recruitingArmy(i)
@@ -72,6 +110,9 @@ class Kingdom {
         workerTaxCollector.collect(peasantList)
         bilderTaxCollector.collect(peasantList)
         farmerTaxCollector.collect(peasantList)
+//        upgradeArcher(archerList) {println(it)}
+//        upgradeWarrior(warriorList) {println(it)}
+//        givegiveFunToPesants(peasantList)
     }
 }
 
@@ -107,10 +148,10 @@ class Heir(name: String) : Ruler(name) {
 
 }
 
-data class Archer(val weapon: String, val armor: String = "LightArmor")
+data class Archer(var weapon: String, val armor: String = "LightArmor")
 
 
-data class Warrior(val weapon: String, val armor: String = "HardArmor")
+data class Warrior(var weapon: String, val armor: String = "HardArmor")
 
 /*class TaxCollector : CollectTaxes {
     override fun collect(peasantList: MutableList<Peasant>) {
