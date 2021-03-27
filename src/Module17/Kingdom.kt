@@ -4,41 +4,41 @@ import Module17.Peasant
 
 
 fun main() {
-    val kingdom = Kingdom()
-    println(kingdom.ruler)
-    Ruler.rulerAnnouncement()
-    ("казна " + Kingdom.treasury).yourHighness()
-    kingdom.upgradeArcher(kingdom.archerList){println(it)}
-    kingdom.upgradeWarrior(kingdom.warriorList) {println(it)}
+    Kingdom().apply {
+        println(ruler)
+        Ruler.rulerAnnouncement()
+        ("казна " + treasury).yourHighness()
+        upgradeArcher(archerList) { println(it) }
+        upgradeWarrior(warriorList) { println(it) }
+    }
 }
 
 class Kingdom {
-    companion object {
-        var treasury = 0
-    }
     var ruler = Ruler("Ivan")
+    var treasury = 0
     var heirList = mutableListOf<Heir>()
     val archerList = mutableListOf<Archer>()
     val warriorList = mutableListOf<Warrior>()
     val peasantList = mutableListOf<Peasant>()
-    val workerTaxCollector = object: TaxCollector(){
+    val workerTaxCollector = object : TaxCollector() {
         override fun collect(peasantList: MutableList<Peasant>) {
             val taxgroup = peasantList.filter { it.occupation == Peasant.Occupation.WORKER }
             treasury += taxgroup.size
         }
     }
-    val bilderTaxCollector = object: TaxCollector(){
+    val bilderTaxCollector = object : TaxCollector() {
         override fun collect(peasantList: MutableList<Peasant>) {
             val taxgroup = peasantList.filter { it.occupation == Peasant.Occupation.BILDER }
             treasury += taxgroup.size * 2
         }
     }
-    val farmerTaxCollector = object: TaxCollector(){
+    val farmerTaxCollector = object : TaxCollector() {
         override fun collect(peasantList: MutableList<Peasant>) {
             val taxgroup = peasantList.filter { it.occupation == Peasant.Occupation.FARMER }
             treasury += taxgroup.size * 3
         }
     }
+
     fun bornHeir(name: String) {
         val heir = Heir(name)
         heirList.add(heir)
@@ -69,40 +69,26 @@ class Kingdom {
     }
 
     fun upgradeWarrior(list: MutableList<Warrior>, operation: (MutableList<Warrior>) -> Unit) {
-        list.forEach { it
-            it.weapon = "BFS"
-        }
+        list.forEach { it.weapon = "BFS" }
 
         operation(list)
     }
 
     fun upgradeArcher(list: MutableList<Archer>, operation: (MutableList<Archer>) -> Unit) {
-        list.forEach { it
-            it.weapon = "Composite bow"
-        }
+        list.forEach { archer -> archer.weapon = "Composite bow" }
 
         operation(list)
     }
 
     fun givegiveFunToPesants(list: List<Peasant>) {
-        list.forEach {peasant ->
+        list.forEach { peasant ->
             list.forEach {
-                if(peasant.occupation == it.occupation) println("Привет, коллега!")
+                if (peasant.occupation == it.occupation) println("Привет, коллега!")
                 else println("Вижу мы с вами занимаемся разным")
             }
         }
     }
 
-    /*fun givegiveFunToPesants(list: MutableList<Peasant>) {
-        list.forEach {
-            var peasant = it
-            list.forEach {
-                if(peasant.occupation == it.occupation) println("Привет, коллега!")
-                else println("Вижу мы с вами занимаемся разным")
-            }
-        }
-    }
-*/
     init {
         for (i in 1..10) bornHeir("Heir$i")
         for (i in 1..50) recruitingArmy(i)
@@ -110,9 +96,7 @@ class Kingdom {
         workerTaxCollector.collect(peasantList)
         bilderTaxCollector.collect(peasantList)
         farmerTaxCollector.collect(peasantList)
-//        upgradeArcher(archerList) {println(it)}
-//        upgradeWarrior(warriorList) {println(it)}
-//        givegiveFunToPesants(peasantList)
+        givegiveFunToPesants(peasantList)
     }
 }
 
@@ -153,20 +137,10 @@ data class Archer(var weapon: String, val armor: String = "LightArmor")
 
 data class Warrior(var weapon: String, val armor: String = "HardArmor")
 
-/*class TaxCollector : CollectTaxes {
-    override fun collect(peasantList: MutableList<Peasant>) {
-        for (i in 0 until peasantList.size)
-        if (peasantList.get(i).occupation == Peasant.Occupation.FARMER) {
-            Kingdom.treasury += 3
-        } else if (peasantList.get(i).occupation == Peasant.Occupation.BILDER) {
-            Kingdom.treasury += 2
-        } else Kingdom.treasury += 1
-    }
-}*/
 
 fun Any.yourHighness() = println("Ваше высоченство, " + this)
 
-abstract class TaxCollector: CollectTaxes
+abstract class TaxCollector : CollectTaxes
 
 interface CollectTaxes {
     fun collect(peasantList: MutableList<Peasant>) {}
